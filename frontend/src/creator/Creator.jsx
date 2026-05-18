@@ -8,6 +8,8 @@ import JewelryTypeSelector from "./componenty/TypeSelector.jsx";
 import LengthSelector from "./componenty/LengthSelector.jsx";
 import CharmsSelector from "./componenty/CharmsSelector.jsx";
 import PriceSummary from "./componenty/PriceSummary.jsx";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Creator() {
   const [selectedMaterial, setSelectedMaterial] = useState(1);
@@ -17,6 +19,8 @@ function Creator() {
   const [isLengthOpen, setIsLengthOpen] = useState(true);
 
   return (
+      <>
+        <Navbar />
     <main className="creator-page">
       <div className="creator-wrapper">
         <CreatorTitle />
@@ -48,6 +52,8 @@ function Creator() {
         <CreatorActions />
       </div>
     </main>
+        <Footer />
+      </>
   );
 }
 
