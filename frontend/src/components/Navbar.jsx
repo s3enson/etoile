@@ -2,7 +2,6 @@ import iconLogo from '../assets/logo.png';
 import iconAcc from '../assets/account.png'
 import iconCart from '../assets/cart.png'
 import iconFavourite from '../assets/ulubione.png'
-import iconSample from "../assets/Sample.png";
 import './Navbar.css';
 
 function Logout(){
@@ -10,60 +9,52 @@ function Logout(){
   location.reload();
 }
 
-
-
 export default function Navbar() {
   return (
         <nav className="navbar">
         <a href="/" className="nav-logo">
           <img src={iconLogo} alt="Logo" />
         </a>
-
-        <ul className="nav-menu">
-          <li>
-            <a href="creator">Kreator</a>
-          </li>
-          <li>
+        <div>
             <a href="blog">Blog</a>
-          </li>
-        </ul>
-
-        <div className="nav-actions">
-        {localStorage.getItem("token") != null && <><a
-              href="ulubione"
-              className="nav-icon"
-              onClick={() => console.log("ulubione")}
+            {localStorage.getItem("token") != null && <>
+            <a href="creator">Kreator</a>
+            <a
+                href="ulubione"
+                className="nav-icon"
+                onClick={() => console.log("ulubione")}
             >
-              <img
-                src={iconFavourite}
-                alt="ulubione"
-                className="nav-iconFav-img"
-              />
+                <img
+                    src={iconFavourite}
+                    alt="ulubione"
+                    className="nav-iconFav-img"
+                />
             </a>
             <a
-              href="koszyk"
-              className="nav-icon"
-              onClick={() => console.log("koszyk")}
+                href="koszyk"
+                className="nav-icon"
+                onClick={() => console.log("koszyk")}
             >
-              <img src={iconCart} alt="koszyk" className="nav-iconCart-img" />
+                <img src={iconCart} alt="koszyk" className="nav-iconCart-img" />
             </a>
             <a
-              href="konto"
-              className="nav-icon"
-              onClick={() => console.log("konto")}
+                href="konto"
+                className="nav-icon"
+                onClick={() => console.log("konto")}
             >
-              <img src={iconAcc} alt="konto" className="nav-iconAcc-img" />
+                <img src={iconAcc} alt="konto" className="nav-iconAcc-img" />
             </a>
-            <button onClick={Logout}>
-              Wyloguj się
-            </button>
-          </>}
-          {localStorage.getItem("token") == null &&  <a
-              href="register"
-            >
-              Zaloguj się
-            </a>}
-            
+                <button onClick={Logout}>
+                    Wyloguj się
+                </button>
+            </>}
+            {localStorage.getItem("token") == null &&
+                <a
+                    href="register"
+                >
+                    Zaloguj się
+                </a>
+            }
         </div>
       </nav>
   );
