@@ -8,6 +8,7 @@ import JewelryTypeSelector from "./componenty/TypeSelector.jsx";
 import LengthSelector from "./componenty/LengthSelector.jsx";
 import CharmsSelector from "./componenty/CharmsSelector.jsx";
 import PriceSummary from "./componenty/PriceSummary.jsx";
+import JewelryPreview from "./componenty/JewelryPreview.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import { useTitle } from "../main.jsx";
@@ -60,44 +61,50 @@ function Creator() {
 			<Navbar />
 			<main className="creator-page">
 				<div className="creator-wrapper">
-					<CreatorTitle />
+					<div className="creator-layout">
+						<JewelryPreview />
 
-					<JewelryTypeSelector
-						selectedType={selectedType}
-						setSelectedType={setSelectedType}
-					/>
+						<div className="creator-panel">
+							<CreatorTitle />
 
-					<MaterialSelector
-						selectedMaterial={selectedMaterial}
-						setSelectedMaterial={setSelectedMaterial}
-						isOpen={isOpen}
-						setIsOpen={setIsOpen}
-					/>
+							<JewelryTypeSelector
+								selectedType={selectedType}
+								setSelectedType={setSelectedType}
+							/>
 
-					<LengthSelector
-						selectedType={selectedType}
-						selectedLength={selectedLength}
-						setSelectedLength={setSelectedLength}
-						isLengthOpen={isLengthOpen}
-						setIsLengthOpen={setIsLengthOpen}
-					/>
+							<MaterialSelector
+								selectedMaterial={selectedMaterial}
+								setSelectedMaterial={setSelectedMaterial}
+								isOpen={isOpen}
+								setIsOpen={setIsOpen}
+							/>
 
-					<CharmsSelector
-						selectedCharm1={selectedCharm1}
-						setSelectedCharm1={setSelectedCharm1}
-						selectedCharm2={selectedCharm2}
-						setSelectedCharm2={setSelectedCharm2}
-					/>
+							<LengthSelector
+								selectedType={selectedType}
+								selectedLength={selectedLength}
+								setSelectedLength={setSelectedLength}
+								isLengthOpen={isLengthOpen}
+								setIsLengthOpen={setIsLengthOpen}
+							/>
 
-					<PriceSummary
-						basePrice={basePrice}
-						charmsPrice={charmsPrice}
-						lengthPrice={lengthPrice}
-						metalPrice={metalPrice}
-						totalPrice={totalPrice}
-					/>
+							<CharmsSelector
+								selectedCharm1={selectedCharm1}
+								setSelectedCharm1={setSelectedCharm1}
+								selectedCharm2={selectedCharm2}
+								setSelectedCharm2={setSelectedCharm2}
+							/>
 
-					<CreatorActions />
+							<PriceSummary
+								basePrice={basePrice}
+								charmsPrice={charmsPrice}
+								lengthPrice={lengthPrice}
+								metalPrice={metalPrice}
+								totalPrice={totalPrice}
+							/>
+
+							<CreatorActions />
+						</div>
+					</div>
 				</div>
 			</main>
 			<Footer />
